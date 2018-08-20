@@ -10,10 +10,12 @@ import javax.faces.bean.ViewScoped;
 public class TestView implements Serializable {
     
     private String testString;
+    private String previewURL;
     
     @PostConstruct  
     public void init() {
         testString = "Welcome to PrimeFaces!!!";
+        previewURL = "http://www.youtube.com/v/KZnUr8lcqjo";
     }
 
     public String getTestString() {
@@ -22,5 +24,13 @@ public class TestView implements Serializable {
 
     public void setTestString(String testString) {
         this.testString = testString;
-    }    
+    }
+
+    public String getPreviewURL() {
+        return previewURL;
+    }
+
+    public void setPreviewURL(String previewURL) {
+        this.previewURL = previewURL;
+    }
 }

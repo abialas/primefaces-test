@@ -10,9 +10,41 @@
     </h:head>
     <h:body>
 
-        <h1>#{testView.testString}</h1>
+        <p:commandButton value="Modal" type="button" onclick="PF('previewDlg').show();" />
 
-        <h1>#{testViewCdi.testString}</h1>
+        <p:dialog id="previewDlg"
+                  widgetVar="previewDlg"
+                  styleClass="overlayWindow"
+                  modal="true"
+                  resizable="false"
+                  closeOnEscape="true"
+                  position="bottom center">
+
+            <h:form id="preview">
+                <h:panelGrid
+                        width="100%"
+                        columns="1"
+                        cellpadding="0"
+                        cellspacing="0"
+                        border="0">
+
+                    <p:media id="showPreviewVideo"
+                             height="250"
+                             styleClass="picturePreview ui-widget"
+                             value="#{testView.previewURL}"
+                             player="quicktime">
+                    </p:media>
+
+                    <h:panelGroup style="display:block; text-align:center">
+                        <p:commandButton id="previewCancelBtn"
+                                         value="Cancel"
+                                         immediate="true"
+                                         styleClass="buttonCancel"
+                                         oncomplete="PF('previewDlg').hide();"/>
+                    </h:panelGroup>
+                </h:panelGrid>
+            </h:form>
+        </p:dialog>
 
     </h:body>
 </html>
